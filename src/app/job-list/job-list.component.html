@@ -1,5 +1,7 @@
 <header tuiNavigationHeader tuiAppearance="positive">
   <span tuiNavigationLogo tuiAppearance="positive">Remote Kenya</span>
+  <hr />
+  <a href="https://vertexkn.netlify.app/" tuiButton appearance="positive" size="xs" tuiFade>Developed by Vertex</a>
 </header>
 <main tuiNavigationMain tuiAppearance="positive">
     <div class="row">
@@ -9,7 +11,7 @@
             <tui-avatar src="{{job.company_logo}}" size="l"></tui-avatar>
           </div>
           <div>
-            <h4 tuiTitle>
+            <h4 tuiTitle *ngIf="job;else noJobs">
               {{job.title}}
               <h4 tuiSubTitle>{{job.category}}</h4>
               <h4 tuiSubTitle><span>Company: </span>{{job.company_name}}</h4>
