@@ -56,10 +56,13 @@ export class JobListComponent implements OnInit{
   constructor(private jobService:JobsServiceService){}
   jobs:any
   jobcount:any
+  status:any
   ngOnInit(): void {
     this.jobService.getJobs().subscribe(
       (data:any)=>{
-        console.log('running ')
+        if(!data){
+          this.status='Loading'
+        }
         this.jobs=data
         this.jobcount=data['job_count']
       },
