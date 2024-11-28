@@ -13,12 +13,12 @@
           <div>
             <h4 tuiTitle *ngIf="job;else noJobs">
               {{job.title}}
-              <h4 tuiSubTitle>{{job.category}}</h4>
-              <h4 tuiSubTitle><span>Company: </span>{{job.company_name}}</h4>
-              <h4 tuiSubTitle>{{job.job_type}}</h4>
-              <h4 tuiSubTitle>{{job.candidate_required_location}}</h4>
-              <h4 tuiSubTitle>Published on {{job.publication_date}}</h4>
-              <h4 tuiSubTitle *ngIf="job.salary;else noSalary">Salary: {{job.salary}}</h4>
+              <tui-badge appearance="positive">{{job.category}}</tui-badge>
+              <tui-badge appearance="positive"><span>Company: </span>{{job.company_name}}</tui-badge>
+              <tui-badge appearance="positive">{{job.job_type}}</tui-badge>
+              <tui-badge appearance="positive">{{job.candidate_required_location}}</tui-badge>
+              <tui-badge appearance="positive">Published on {{job.publication_date}}</tui-badge>
+              <tui-badge appearance="positive" *ngIf="job.salary;else noSalary">Salary: {{job.salary}}</tui-badge>
             </h4>
           </div>
         </div>
@@ -30,6 +30,6 @@
   </ng-template>
 
   <ng-template #noSalary tuiTitle>
-    <p tuiSubTitle>Salary Unknown</p>
+    <tui-badge appearance="positive">Salary Unknown</tui-badge>
   </ng-template>
 </main>
