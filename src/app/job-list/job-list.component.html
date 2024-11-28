@@ -1,0 +1,33 @@
+<header tuiNavigationHeader>
+  <span tuiNavigationLogo>Remote Kenya</span>
+</header>
+<main tuiNavigationMain>
+    <div class="row">
+      <div class="col-md-2 col-12 m-3" tuiCardLarge tuiAppearance="positive" *ngFor="let job of jobs.jobs">
+        <div tuiCardLarge class="d-flex justify-content-between">
+          <div>
+            <tui-avatar src="{{job.company_logo}}" size="l"></tui-avatar>
+          </div>
+          <div>
+            <h4 tuiTitle>
+              {{job.title}}
+              <h4 tuiSubTitle>{{job.category}}</h4>
+              <h4 tuiSubTitle><span>Company: </span>{{job.company_name}}</h4>
+              <h4 tuiSubTitle>{{job.job_type}}</h4>
+              <h4 tuiSubTitle>{{job.candidate_required_location}}</h4>
+              <h4 tuiSubTitle>Published on {{job.publication_date}}</h4>
+              <h4 tuiSubTitle *ngIf="job.salary;else noSalary">Salary: {{job.salary}}</h4>
+            </h4>
+          </div>
+        </div>
+        <a href="{{job.url}}" tuiButton appearance="positive">Apply on Remotive</a>
+      </div>
+      </div>
+  <ng-template #noJobs>
+    <p>No Jobs</p>
+  </ng-template>
+
+  <ng-template #noSalary tuiTitle>
+    <p tuiSubTitle>Salary Unknown</p>
+  </ng-template>
+</main>
